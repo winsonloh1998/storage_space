@@ -2,14 +2,14 @@ group 'flowmobile.storage_space'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.5.31'
+    ext.kotlin_version = '1.7.20'
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:7.0.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -27,7 +27,7 @@ apply plugin: 'kotlin-android'
 android {
     namespace 'flowmobile.storage_space'
 
-    compileSdkVersion 30
+    compileSdkVersion 33
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -38,16 +38,18 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 18
     }
     lintOptions {
         disable 'InvalidPackage'
     }
-}
 
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    buildFeatures {
+        buildConfig true
+    }
+
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = 17
     }
 }
 
