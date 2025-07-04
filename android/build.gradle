@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'com.flowmobile.storage_space'
+    namespace 'flowmobile.storage_space'
 
     compileSdkVersion 28
 
